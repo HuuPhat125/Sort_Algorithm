@@ -1,28 +1,53 @@
-#include <bits/stdc++.h>
-#include <chrono>
-#include <fstream>
-#include <cstdlib>
+#include <iostream>
+//#include <bits/stdc++.h>
+#include <queue>
+#include <time.h>
+#include <algorithm>
 using namespace std;
-using namespace std::chrono;
-const int max_n = 1e6;
+#include "quickSort.h"
+#include "heapSort.h"
+#include "mergeSort.h"
 
-double a[max_n];
+const int mN = 1e6 + 10;
+int n;
+float inpArr[mN], runArr[mN];
+const string NAME = "test_10";
 
-int main()
-{
-    auto start = high_resolution_clock::now();
-    ifstream fi("test_10.txt");
-    ofstream fo("ans_1.txt");
-    ofstream myfile;
-    myfile.open("my_res.txt", ios::app);
-    for (int i = 0; i < 1e6; i++)
-        fi >> a[i];
-    sort(a, a + max_n);
-    for (int i = 0; i < 1e6; i++)
-        fo << a[i];
-    auto end = high_resolution_clock::now();
-    auto time_taken = duration_cast<milliseconds>(end - start);
-    myfile << "Time taken by code segment: " << time_taken.count() << " milliseconds." << endl;
-    myfile.close();
-    return 0;
+void reset() {
+    for (int i = 1; i <= n; i++)
+        runArr[i] = inpArr[i];
+}
+
+int main() {
+    freopen((NAME + ".inp").c_str(), "r", stdin);
+    freopen((NAME + ".out").c_str(), "w", stdout);
+    clock_t start, finish;
+    n = 1e6;
+    for (int i = 0; i < n; i++)
+        cin >> inpArr[i];
+    cout << "\n";
+    cout << "Result in " << NAME << " are :\n";
+    reset();
+    start = clock();
+    MergeSort(runArr, 0, n - 1);
+    finish = clock();
+    cout << "Merge Sort runtime is: " << (finish - start)  * 1.0 /CLOCKS_PER_SEC << "s\n";
+    reset();
+    start = clock();
+    QuickSort(runArr, 0, n - 1);
+    finish = clock();
+    cout << "Quick Sort runtime is: " << (finish - start) * 1.0 /CLOCKS_PER_SEC << "s\n";
+    reset();
+    start = clock();
+    HeapSort(runArr, 0, n - 1);
+    finish = clock();
+    cout << "Heap Sort runtime is: " << (finish - start) * 1.0 /CLOCKS_PER_SEC << "s\n";
+    reset();
+    start = clock();
+    sort(runArr, runArr + n);
+    finish = clock();
+    cout << "std::sort in C++ runtime is: " << (finish - start)  * 1.0 /CLOCKS_PER_SEC << "s\n";
+    // for(int i = 0 ; i < n ; i++){
+    //     cout << runArr[i] << " "; 
+    // }
 }

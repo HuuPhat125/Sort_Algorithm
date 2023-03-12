@@ -1,0 +1,3 @@
+
+    start = clock();
+    HeapSort(runArr
