@@ -1,0 +1,10 @@
+Time taken by code segment: 3359 milliseconds.
+Time taken by code segment: 3327 milliseconds.
+Time taken by code segment: 3298 milliseconds.
+Time taken by code segment: 3288 milliseconds.
+Time taken by code segment: 3287 milliseconds.
+Time taken by code segment: 3336 milliseconds.
+Time taken by code segment: 3370 milliseconds.
+Time taken by code segment: 3388 milliseconds.
+Time taken by code segment: 3222 milliseconds.
+Time taken by code segment: 3166 milliseconds.
