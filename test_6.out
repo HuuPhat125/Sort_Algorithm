@@ -1,6 +1,0 @@
-
-Result in test_6 are :
-Merge Sort runtime is: 0.199s
-Quick Sort runtime is: 0.184s
-Heap Sort runtime is: 0.316s
-std::sort in C++ runtime is: 0.152s
